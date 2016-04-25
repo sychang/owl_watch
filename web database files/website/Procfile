@@ -1,0 +1,1 @@
+web: gunicorn radar:app --log-file=-

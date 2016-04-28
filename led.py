@@ -44,3 +44,7 @@ elif args.color[0] == 'blue':
  elif args.color[0] == 'purple':
   GPIO.output(blue, 1)
   GPIO.output(red, 1)
+
+
+
+

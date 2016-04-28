@@ -1,6 +1,19 @@
 import RPi.GPIO as GPIO
 import time
 GPIO.setmode(GPIO.BCM)
+import pygame
+
+import pygame
+
+#PLAY AUDIO CLIP
+def play_audio(clip_to_play):
+    print 'play audio start'
+    pygame.mixer.init()
+    pygame.mixer.music.load(clip_to_play)
+    pygame.mixer.music.play()
+    while pygame.mixer.music.get_busy() == True:
+      continue
+
 
 TRIG = 20 
 ECHO = 26
@@ -25,7 +38,10 @@ GPIO.output(TRIG, False)
 print "Waiting For Sensor To Settle"
 time.sleep(2)
 
+
 while(True):
+	#start the live stream when turned on
+	#LD_LIBRARY_PATH=/usr/local/lib mjpg_streamer -i "input_file.so -f /tmp/stream -n pic.jpg" -o "output_http.so -w /usr/local/www"
 
 	GPIO.output(TRIG, True)
 	time.sleep(0.00001)
@@ -45,10 +61,15 @@ while(True):
 	GPIO.output(red, 0)
 	GPIO.output(green, 0)
 	GPIO.output(blue, 0)
-	if distance < 10:
+	#if button pressed:
+		#send SOS 
+	#if distance < 10:
+		#not manually shut off within x time, send alert
+		#speaker gets really loud
+	if distance < 50:
+		#activates timed warning
 		GPIO.output(red, 1)
-		GPIO.output(green, 1)
-	elif distance < 100:
+	elif distance < 300:
 		GPIO.output(blue, 1)
 		
 	print "Distance:",distance,"cm"

@@ -1,10 +1,56 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>RPi input</title>
+    <title>Owl Watch</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: linear-gradient(to bottom, rgb(38, 87, 130), rgb(20, 33, 44));
+        font-family: Lato, Helvetica, Arial, sans-serif;
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+      }
+
+      .title {
+        display: inline-block;
+        text-align: center;
+        text-transform: uppercase;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #fff;
+      }
+
+      .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      button {
+        background-color: transparent;
+        border: 1px solid #fff;
+        padding: 10px 20px;
+        color: #fff;
+        border-radius: 20px;
+        font-size: 16px;
+        font-family: Lato, Helvetica, Arial, sans-serif;
+      }
+
+      button:hover {
+        cursor: pointer;
+      }
+    </style>
 </head>
 <body>
-<button data="/lookout/">Toggle Warning Sound</button>
+<div class="content">
+  <div class="title">Owl Watch</div>
+  <p>See something suspicious? Let your friend know!</p>
+  <button data="/lookout/">Send Alert</button>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 

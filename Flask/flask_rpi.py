@@ -14,5 +14,9 @@ def alert():
   pa.play_audio('owl.mp3')
   return 'hoot'
 
+@app.route("/heatmap")
+def heatmap():
+    return render_template("heatmap.html")
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0") 

@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
     <title>Owl Watch</title>
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
     <link href='/static/animation.css' rel='stylesheet' type='text/css'>
     <style type="text/css">
+      html {
+        height: 100%;
+      }
       body {
         margin: 0;
         padding: 0;
@@ -14,6 +17,7 @@
         color: #fff;
         font-size: 20px;
         text-align: center;
+        font-weight: 300;
       }
 
       .title {
@@ -21,11 +25,17 @@
         text-align: center;
         text-transform: uppercase;
         padding-bottom: 5px;
-        border-bottom: 1px solid #fff;
+        /*border-bottom: 1px solid #fff;*/
+        font-weight: 300;
+        letter-spacing: 1.5px;
       }
 
       .content {
-        margin-bottom: 20px;
+        /*margin-bottom: 20px;*/
+        overflow: hidden;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 50px;
       }
 
       button {
@@ -37,6 +47,7 @@
         font-size: 16px;
         font-family: Lato, Helvetica, Arial, sans-serif;
         position: relative;
+        font-weight: 300;
       }
 
       button:hover {
@@ -50,7 +61,7 @@
       .logo {
         width: 300px;
         display: block;
-        margin: 20px auto;
+        /*margin: 20px auto;*/
       }
 
       iframe {
@@ -59,17 +70,47 @@
         border: 0;
         display: block;
         margin: 30px auto;
+        background-color: #000;
+      }
+
+      .sidebar {
+        width: 300px;
+        float: left;
+        margin-left: 40px;
+      }
+
+      .cam {
+        width: 640px;
+        float: left;
+      }
+
+      a {
+        color: #fff;
+        font-weight: 300;
+        text-decoration: none;
+        border-bottom: 1px solid #fff;
+        padding-bottom: 5px;
+      }
+
+      p {
+        margin-top: 70px;
       }
     </style>
 </head>
 <body>
 <div class="content">
-  <img class="logo" src="/static/owl_logo.png">
-  <div class="title">Allison's Owl Cam</div>
-  <iframe src=""></iframe>
-  <!-- <iframe src="http://172.20.10.5:8080/owl_cam.html"></iframe> -->
-  <p>See something suspicious? Let Allison know!</p>
-  <button class="cbutton cbutton--effect-stoja cbutton--effect-stoja-right" data="/lookout/">Send a Hoot</button>
+  <div class="cam">
+    <div class="title">Allison's Owl Cam</div>
+    <iframe src=""></iframe>
+    <!-- <iframe src="http://172.20.10.5:8080/owl_cam.html"></iframe> -->
+  </div>
+  <div class="sidebar">
+    <img class="logo" src="/static/owl_logo.png">
+    <a href="/heatmap">View Dangerous Areas</a>
+    <p>See something suspicious? <br>Let Allison know!</p>
+    <button class="cbutton cbutton--effect-stoja cbutton--effect-stoja-right" data="/lookout/">Send a Hoot</button>
+  </div>
+  
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>

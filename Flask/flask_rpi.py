@@ -1,5 +1,6 @@
 from flask import Flask, render_template
-import RPi.GPIO as GPIO
+# import RPi.GPIO as GPIO
+import play_audio as pa
 import threading
 import time
 
@@ -8,6 +9,10 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
     return render_template("index.html")
+
+@app.route("/lookout")
+def alert():
+  pa.play_audio('owl.mp3')
 
 @app.route("/led/")
 def toggle_led():

@@ -3,11 +3,12 @@
 <head>
     <title>Owl Watch</title>
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='/static/animation.css' rel='stylesheet' type='text/css'>
     <style type="text/css">
       body {
         margin: 0;
         padding: 0;
-        height: 100vh;
+        height: 100%;
         background: linear-gradient(to bottom, rgb(38, 87, 130), rgb(20, 33, 44));
         font-family: Lato, Helvetica, Arial, sans-serif;
         color: #fff;
@@ -24,10 +25,7 @@
       }
 
       .content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        margin-bottom: 20px;
       }
 
       button {
@@ -38,40 +36,50 @@
         border-radius: 20px;
         font-size: 16px;
         font-family: Lato, Helvetica, Arial, sans-serif;
+        position: relative;
       }
 
       button:hover {
         cursor: pointer;
       }
+      
+      button:focus {
+        outline: none;
+      }
+
+      .logo {
+        width: 300px;
+        display: block;
+        margin: 20px auto;
+      }
+
+      iframe {
+        width: 640px;
+        height: 480px;
+        border: 0;
+        display: block;
+        margin: 30px auto;
+      }
     </style>
 </head>
 <body>
 <div class="content">
-  <div class="title">Owl Watch</div>
-  <iframe src="http://172.20.10.5:8080/javascript_simple.html" width="400" height="300"></iframe>
-  <p>See something suspicious? Let your friend know!</p>
-  <button data="/lookout/">Send Alert</button>
+  <img class="logo" src="/static/owl_logo.png">
+  <div class="title">Allison's Owl Cam</div>
+  <iframe src=""></iframe>
+  <!-- <iframe src="http://172.20.10.5:8080/owl_cam.html"></iframe> -->
+  <p>See something suspicious? Let Allison know!</p>
+  <button class="cbutton cbutton--effect-stoja cbutton--effect-stoja-right" data="/lookout/">Send a Hoot</button>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="/static/classie.js"></script>
 
-<script type="text/javascript">
-  var button = $("button"),
-      url = button.attr("data");
-
-  button.on("click", function () {
-    $.ajax({
-      url: url,
-      success: function (response) {
-        console.log(response)
-        if (response === "True") {
-            button.css("background-color", "green")
-        } else {
-            button.css("background-color", "red")
-        }
-      }
-    })
+<script>
+  $('.cbutton').click(function() {
+    $(this).toggleClass('cbutton--click');
   })
 </script>
+
 </body>
 </html>
